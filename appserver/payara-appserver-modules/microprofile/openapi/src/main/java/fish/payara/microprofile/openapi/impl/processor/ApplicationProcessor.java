@@ -127,6 +127,7 @@ import fish.payara.microprofile.openapi.impl.visitor.OpenApiContext;
 import fish.payara.microprofile.openapi.impl.visitor.OpenApiWalker;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.ParameterizedType;
+import javax.ws.rs.Path;
 import org.eclipse.microprofile.openapi.models.parameters.Parameter.Style;
 
 /**

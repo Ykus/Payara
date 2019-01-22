@@ -227,6 +227,9 @@ public class OpenApiWalker implements ApiWalker {
         if (altClass == null) {
             // Check the element
             if (element.isAnnotationPresent(annotationClass)) {
+                if (context.getPath() == null) {
+                    
+                }
                 annotationFunction.apply(element.getDeclaredAnnotation(annotationClass), (E) element, context);
             } else if (element instanceof Method
                     && Method.class.cast(element).getDeclaringClass().isAnnotationPresent(annotationClass)) {

@@ -565,10 +565,20 @@ public final class ModelUtils {
             if (method.isAnnotationPresent(GET.class) || method.isAnnotationPresent(POST.class)
                     || method.isAnnotationPresent(PUT.class) || method.isAnnotationPresent(DELETE.class)
                     || method.isAnnotationPresent(HEAD.class) || method.isAnnotationPresent(OPTIONS.class)
-                    || method.isAnnotationPresent(PATCH.class)) {
+                    || method.isAnnotationPresent(PATCH.class) || method.isAnnotationPresent(Path.class)) {
                 if (method.isAnnotationPresent(Path.class)) {
-                    path = getResourcePath(method.getDeclaringClass(), resourceMapping) + "/"
-                            + method.getDeclaredAnnotation(Path.class).value();
+//                    boolean isSubResources = false;
+//                    for (Map.Entry<String, Set<Class<?>>> entry : resourceMapping.entrySet()) {
+//                        if (entry.getValue() != null && entry.getValue().contains((Class<?>) method.getGenericReturnType())) {
+//                            path = getResourcePath((Class<?>) method.getGenericReturnType(), resourceMapping) + "/"
+//                                    + method.getDeclaredAnnotation(Path.class).value();
+//                            isSubResources = true;
+//                        }
+//                    }
+//                    if (! isSubResources) {
+                        path = getResourcePath(method.getDeclaringClass(), resourceMapping) + "/"
+                                + method.getDeclaredAnnotation(Path.class).value();
+//                    }
                 } else {
                     path = getResourcePath(method.getDeclaringClass(), resourceMapping);
                 }

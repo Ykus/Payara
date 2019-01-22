@@ -56,6 +56,7 @@ import java.util.List;
 import java.util.Properties;
 import static com.sun.enterprise.module.bootstrap.ArgumentManager.argsToMap;
 import fish.payara.boot.runtime.BootCommands;
+import java.util.concurrent.TimeUnit;
 import static java.util.logging.Level.SEVERE;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
@@ -80,6 +81,8 @@ public class GlassFishMain {
         String platform = MainHelper.whichPlatform();
 
         System.out.println("Launching Payara Server on " + platform + " platform");
+
+        TimeUnit.SECONDS.sleep(30);
 
         // Set the system property if downstream code wants to know about it
         System.setProperty(Constants.PLATFORM_PROPERTY_KEY, platform); // TODO(Sahoo): Why is this a system property?
